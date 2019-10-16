@@ -8,20 +8,25 @@ let g:solarized_termtrans=1
 colorscheme solarized
 let g:airline_powerline_fonts=1
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_ruby_checkers = ['rubocop']
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
+let g:airline#extensions#ale#enabled = 1
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_eslint_exe = 'npm run eslint --'
 
 autocmd FileType ruby set sw=2
 
-set clipboard=unnamedplus
-
 set expandtab
+set shiftwidth=2
+set softtabstop=2
 
 set scrolloff=10
 
@@ -32,6 +37,27 @@ set smartcase
 
 set number
 
+set clipboard=unnamed
+set hlsearch
+
+" Set backups off
+set nobackup
+set nowb
+set noswapfile
+
+let g:EditorConfig_exclude_patterns = ['fugitive://.\*', 'scp://.\*']
+
+" Set syntax support for .prisma files
+au BufNewFile,BufRead *.prisma setfiletype graphql
+
+" closing tag configurations:
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml, *.js'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+let g:closetag_emptyTags_caseSensitive = 1
+
 noremap <F7> :tabp<CR>
 noremap <F8> :tabn<CR>
 noremap <C-g> <C-]>
+
+" exit insert mode with jj
+:imap jj <Esc>
