@@ -1,1 +1,1 @@
-# vim-stuff
+# dotfiles
