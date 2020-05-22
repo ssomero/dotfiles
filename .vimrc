@@ -48,11 +48,18 @@ set noswapfile
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*', 'scp://.\*']
 
 " Set syntax support for .prisma files
-au BufNewFile,BufRead *.prisma setfiletype graphql
+" au BufNewFile,BufRead *.prisma setfiletype graphql
+
+" Set syntax support for typescript files
+" au BufNewFile,BufRead *.tsx setfiletype typescript
+augroup SyntaxSettings
+    autocmd!
+    autocmd BufNewFile,BufRead *.tsx set filetype=typescript
+augroup END
 
 " closing tag configurations:
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml, *.js'
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml, *.js, *.ts'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx, *.tsx'
 let g:closetag_emptyTags_caseSensitive = 1
 
 noremap <F7> :tabp<CR>
