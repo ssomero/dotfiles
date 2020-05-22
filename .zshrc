@@ -127,4 +127,4 @@ unsetopt inc_append_history
 unsetopt share_history
 
 # Add timestamp to prompt
-PROMPT='%{$fg[yellow]%}[%D{%f/%m/%y} %D{%L:%M}] '$PROMPT
+PROMPT='%{$fg[yellow]%}[%D{%f/%m/%y} %D{%K:%M}] '$PROMPT
