@@ -8,19 +8,31 @@ let g:solarized_termtrans=1
 colorscheme solarized
 let g:airline_powerline_fonts=1
 set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\}
-let g:airline#extensions#ale#enabled = 1
+" ale linter configs
+"let g:ale_linters = {
+" \   'javascript': ['eslint'],
+" \}
+" ['tslint']
+
+" let g:airline#extensions#ale#enabled = 1
 " let g:syntastic_always_populate_loc_list = 1
 " let g:syntastic_auto_loc_list = 1
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
 " let g:syntastic_javascript_checkers = ['eslint']
 " let g:syntastic_javascript_eslint_exe = 'npm run eslint --'
+
+" syntastic configs
+let g:syntastic_typescript_checkers = ['tslint', 'tsuquyomi']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_loc_list_height = 5
 
 autocmd FileType ruby set sw=2
 
